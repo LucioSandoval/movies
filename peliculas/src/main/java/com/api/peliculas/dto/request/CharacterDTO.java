@@ -6,6 +6,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -13,7 +14,7 @@ public class CharacterDTO {
   private long id;
 
   @NotBlank(message = ValidationMessages.REQUEST_PARAM_EMPTY_ERROR_MESSAGE)
-  @Size(max = 250, message = ValidationMessages.REQUEST_PARAM_MAX_ERROR_MESSAGE)
+  @Size(max = 250, message = ValidationMessages.REQUEST_PARAM_SIZE_MAX_ERROR_MESSAGE)
   private String image;
 
 
@@ -23,12 +24,12 @@ public class CharacterDTO {
   private String name;
 
 
-  @NotBlank(message = ValidationMessages.REQUEST_PARAM_EMPTY_ERROR_MESSAGE)
-  @Min(value = 0, message = ValidationMessages.REQUEST_PARAM_SIZE_MIN_ERROR_MESSAGE)
-  @Max(value = 3, message = ValidationMessages.REQUEST_PARAM_SIZE_MAX_ERROR_MESSAGE)
+  @NotNull(message = ValidationMessages.REQUEST_PARAM_EMPTY_ERROR_MESSAGE)
+  @Min(value = 0, message = ValidationMessages.REQUEST_PARAM_MIN_ERROR_MESSAGE)
+  /*@Max(value = 3, message = ValidationMessages.REQUEST_PARAM_SIZE_MAX_ERROR_MESSAGE)*/
   private int age;
 
-  @NotBlank(message = ValidationMessages.REQUEST_PARAM_EMPTY_ERROR_MESSAGE)
+  @NotNull(message = ValidationMessages.REQUEST_PARAM_EMPTY_ERROR_MESSAGE)
   private Double weighs;
 
 
